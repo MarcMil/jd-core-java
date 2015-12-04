@@ -36,9 +36,12 @@ public class Main {
             String jarPath = paths.get(0);
 
             String outPath = paths.size() > 1 ? paths.get(1) : null;
+			if (outPath.toLowerCase().endsWith(".class")) {
+				System.out.println(new Decompiler().decompileClass(jarPath, outPath));
+			} else {
+				new Decompiler().decompile(jarPath, outPath);
+			}
 
-            int numDecompiled = new Decompiler().decompile(jarPath, outPath);
-            System.err.println("Decompiled " + numDecompiled + " classes");
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1);

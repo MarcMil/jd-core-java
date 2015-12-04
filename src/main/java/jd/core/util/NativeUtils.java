@@ -55,7 +55,7 @@ public class NativeUtils {
         }
  
         // Prepare temporary file
-        File temp = File.createTempFile(prefix, suffix);
+        File temp = File.createTempFile("lib", suffix);
         temp.deleteOnExit();
  
         if (!temp.exists()) {
